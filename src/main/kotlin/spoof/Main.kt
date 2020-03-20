@@ -8,12 +8,10 @@ fun initMessage(): String = "---Spoof Game---"
 
 fun main() {
     println(initMessage())
-    repeat(10000) {
-        smartComputerVsComputer()
-    }
+    repeat(100000) { smartComputerVsComputer() }
     //smartComputerVsHuman()
-    print("player 1: ${playerScores[0]}")
-    print("player 2: ${playerScores[1]}")
+    println("player 1: ${playerScores[0]}")
+    println("player 2: ${playerScores[1]}")
 }
 
 fun randomComputerVsHuman() {
@@ -125,11 +123,12 @@ fun randomComputerVsComputer() {
 }
 
 fun smartComputerVsComputer() {
-    println("Random Computer vs Computer...")
-    val game = SpoofGame(numberOfCoins = (0..1000).random())
+    println("AI Computer vs Random Computer...")
+    val game = SpoofGame(numberOfCoins = (0..100).random())
     val computer1Player = ComputerPlayer()
     val computer2Player = Player(UUID.randomUUID())
     var result: CoinTakeResponse
+    println("There are ${game.numberOfCoins} coins.")
     while (true) {
         val computer1Attempt = computer1Player.getNextMove(game)
         println("Computer1 take(s)... ${computer1Attempt.numberOfCoinsToTake} coins.")

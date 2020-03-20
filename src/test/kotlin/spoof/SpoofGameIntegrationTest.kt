@@ -3,14 +3,12 @@ package test.kotlin.spoof
 import main.kotlin.spoof.CoinTakeRequest
 import main.kotlin.spoof.Player
 import main.kotlin.spoof.SpoofGame
-import org.junit.jupiter.api.Test
 import java.util.*
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class SpoofGameIntegrationTest {
 
-    @Test
     fun `Sample game produces expected winner and looser`() {
         val players = listOf(
             Player(UUID.randomUUID()),
